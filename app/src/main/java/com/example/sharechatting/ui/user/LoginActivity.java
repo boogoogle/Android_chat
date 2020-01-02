@@ -10,25 +10,21 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.sharechatting.MainActivity;
 import com.example.sharechatting.R;
 import com.example.sharechatting.api.OkHttpClientManager;
+import com.example.sharechatting.api.ResultCallback;
 import com.example.sharechatting.api.ScRequest;
 import com.example.sharechatting.domain.User;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
 
 public class LoginActivity extends AppCompatActivity {
     private LoginViewModel loginViewModel;
@@ -87,13 +83,27 @@ public class LoginActivity extends AppCompatActivity {
     private void login(User loginUser) {
 //        new ScRequest().post();
 //            String url = "http://172.16.181.10:8888/maven_web/loginServlet?name=zhangsan&password=123";
-            new ScRequest().post(loginUser);
-            new OkHttpClientManager().postAsync(
-                    "http://10.21.6.64:8809/person",
-                    loginUser,
-                    null,
-                    false
-            );
+//
+            ResultCallback<User> resultCallback = new ResultCallback<User>() {
+                @Override
+                public void onError(Request request, Exception e) {
+                    Log.d("ttt", "fail" + e.toString());
+                }
+
+                @Override
+                public void onResponse(User response) {
+                    Log.d("ttt","--" + response.toString());
+                    Intent it = new Intent(LoginActivity.this, MainActivity.class );
+                    startActivity(it);
+                }
+            };
+            new ScRequest().post(loginUser, resultCallback);
+//            new OkHttpClientManager().postAsync(
+//                    "http://10.21.6.64:8809/person",
+//                    loginUser,
+//                    resultCallback,
+//                    false
+//            );
 
     }
 }

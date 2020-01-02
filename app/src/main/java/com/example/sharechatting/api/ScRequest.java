@@ -9,6 +9,8 @@ import com.google.gson.Gson;
 
 import java.io.IOException;
 
+import javax.xml.transform.Result;
+
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -41,41 +43,11 @@ public class ScRequest {
         }
     }
 
-    public void post(User user) {
-
-        // 使用okhttp3强大的FormBody构建body体
-//        RequestBody requestBody = new FormBody.Builder()
-//                .add("username", user.getName())
-//                .add("password", user.getPassword())
-//                .build();
-
-        // 生成请求
-//        request = new Request.Builder()
-//                .url(baseUrl)
-//                .post(requestBody)
-//                .build();
-
-
+    public void post(Object o, ResultCallback resultCallback) {
         try {
 
-//            Response response = client.newCall(request).execute();
-//            String responseData = response.body().string();
-//            Log.d("ShareChatDebug", "post: "+responseData);
-//            Gson gson = new Gson();
-//            BaseResponse bs = gson.fromJson(responseData, BaseResponse.class);
 
-            ResultCallback<User> resultCallback = new ResultCallback<User>() {
-                @Override
-                public void onError(Request request, Exception e) {
-                    Log.d("ttt", "fail" + e.toString());
-                }
-
-                @Override
-                public void onResponse(User response) {
-                    Log.d("ttt","--" + response.toString());
-                }
-            };
-            new OkHttpClientManager().postAsync(baseUrl,user, resultCallback,null);
+            new OkHttpClientManager().postAsync(baseUrl,o, resultCallback,null);
 
 
         } catch (Exception e) {

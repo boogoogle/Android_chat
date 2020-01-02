@@ -142,6 +142,7 @@ public class OkHttpClientManager {
 
         final ResultCallback resultCallback = callback;
 
+        // 拿到ResultCallback<>传入的泛型
         final Type callbackMtype = getSuperclassTypeParameter(callback.getClass());
 
 
