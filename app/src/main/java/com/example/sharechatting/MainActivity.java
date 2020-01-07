@@ -9,6 +9,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import cn.leancloud.AVLogger;
+import cn.leancloud.AVOSCloud;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,6 +27,15 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+
+
+
+        AVOSCloud.setLogLevel(AVLogger.Level.DEBUG);
+        // 初始化leancloud
+        AVOSCloud.initialize(this,
+                "6RMuubE0NyLH4rkCeCcy8eQX-gzGzoHsz",
+                "lcVhdGzvs9nSGbkkSDufy5mp",
+                "https://6rmuube0.lc-cn-n1-shared.com");
     }
 
 }
