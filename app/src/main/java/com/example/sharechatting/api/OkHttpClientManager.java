@@ -37,6 +37,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import retrofit2.http.Body;
 
 public class OkHttpClientManager {
 
@@ -126,10 +127,12 @@ public class OkHttpClientManager {
 //        MediaType FORM_TYPE = MediaType.parse("multipart/form-data");
 
         String bodyJson = mGson.toJson(body);
-        RequestBody requestBody = FormBody.create(MediaType.parse("application/json;charset=utf-8"),bodyJson);
+        RequestBody requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"),bodyJson);
 
         Request request = new Request.Builder()
                 .url(uri)
+//                .addHeader("content-type", "application/json;charset:utf-8")
+//                貌似默认就是这个? 还是因为上面构建requestBody时添加的?
                 .post(requestBody)
                 .build();
 
@@ -174,6 +177,7 @@ public class OkHttpClientManager {
                     }
                 }else {
                     Exception exception=new Exception(response.code()+":"+responseMessage);
+                    Log.e("andsError", response.toString());
                        sendFailedStringCallback(response.request(), exception, resultCallback);
                 }
             }

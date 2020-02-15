@@ -2,6 +2,7 @@ package com.example.sharechatting;
 
 import android.os.Bundle;
 
+import com.example.sharechatting.chatkit.Chatkit;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,8 +10,6 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import cn.leancloud.AVLogger;
-import cn.leancloud.AVOSCloud;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,14 +27,8 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
+        Chatkit.init(this);
 
-
-        AVOSCloud.setLogLevel(AVLogger.Level.DEBUG);
-        // 初始化leancloud
-        AVOSCloud.initialize(this,
-                "6RMuubE0NyLH4rkCeCcy8eQX-gzGzoHsz",
-                "lcVhdGzvs9nSGbkkSDufy5mp",
-                "https://6rmuube0.lc-cn-n1-shared.com");
     }
 
 }
