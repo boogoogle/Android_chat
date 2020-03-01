@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import com.example.sharechatting.MainActivity;
+import com.example.sharechatting.activities.MainActivity;
 import com.example.sharechatting.R;
 import com.example.sharechatting.api.ResultCallback;
 import com.example.sharechatting.api.ScRequest;

@@ -28,7 +28,7 @@ public class HomeFragment extends Fragment {
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        final TextView textView = root.findViewById(R.id.text_username);
+        final TextView textView = root.findViewById(R.id.editText);
         homeViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
@@ -43,8 +43,6 @@ public class HomeFragment extends Fragment {
                 homeViewModel.setmText();
             }
         });
-
-
 
         return root;
     }

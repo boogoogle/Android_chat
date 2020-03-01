@@ -1,7 +1,8 @@
-package com.example.sharechatting;
+package com.example.sharechatting.activities;
 
 import android.os.Bundle;
 
+import com.example.sharechatting.R;
 import com.example.sharechatting.chatkit.Chatkit;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -11,7 +12,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_marginLeft="@dimen/marginSize"
+    android:layout_marginRight="@dimen/marginSize"
+    android:layout_height="@dimen/inputViewHeight">
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/icon_login_admin_default"></ImageView>
+
+    <EditText
+        android:id="@+id/et_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@null"
+        android:hint="input username"
+        android:textSize="@dimen/titleSize"
+        android:paddingLeft="@dimen/marginSize"
+        android:paddingRight="@dimen/marginSize"></EditText>
+</LinearLayout>
