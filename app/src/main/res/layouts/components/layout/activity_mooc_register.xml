@@ -40,12 +40,12 @@
         android:layout_gravity="center_horizontal"
         android:textColor="@color/colorMain"
         android:layout_margin="@dimen/marginSize"
-        android:onClick="onRegisterClick"
-        android:text="立即注册" />
+        android:onClick="onLoginClick"
+        android:text="我要登陆" />
 
     <Button
         style="@style/commitBtn"
-        android:text="立即登录"
+        android:text="立 即 注 册"
         android:onClick="onCommitClick"
         ></Button>
 

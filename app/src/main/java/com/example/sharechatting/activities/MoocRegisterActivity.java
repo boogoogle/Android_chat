@@ -11,14 +11,14 @@ import com.example.sharechatting.utils.UserUtils;
 /**
  * NavigationBar
  */
-public class MoocLoginActivity extends BaseActivity {
+public class MoocRegisterActivity extends BaseActivity {
 
     InputView mInputPhone, mInputPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mooc_login);
+        setContentView(R.layout.activity_mooc_register);
         initView();
     }
     private void initView(){ // protected 可以在子类中调用
@@ -28,10 +28,11 @@ public class MoocLoginActivity extends BaseActivity {
         mInputPassword = fd(R.id.input_password);
     }
 
-    public void onRegisterClick(View v){
-        Intent it = new Intent(this, MoocRegisterActivity.class);
+    public void onLoginClick(View v){
+        Intent it = new Intent(this, MoocLoginActivity.class);
         startActivity(it);
 //        finish();
+
     }
     public void onCommitClick(View v){
         String phone = mInputPhone.getInputStr();

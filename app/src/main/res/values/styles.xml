@@ -5,7 +5,22 @@
         <!-- 修改主色调 -->
         <item name="colorPrimary">@color/colorPrimary</item>
     <!--        修改statusBar颜色-->
-        <item name="android:statusBarColor">@color/colorMain</item>
+<!--       <item name="android:statusBarColor">@color/colorMain</item>-->
+
+        <!-- 所有Activity的动画样式 -->
+        <item name="android:windowAnimationStyle">@style/ActivityAnimation</item>
+
+    </style>
+
+    <style name="ActivityAnimation" parent="android:style/Animation.Activity">
+        <!-- 打开Activity时, 新进入的Activity执行的动画-->
+        <item name="android:activityOpenEnterAnimation">@anim/open_enter</item>
+        <!-- 打开Activity时, 原来Activity执行的动画-->
+        <item name="android:activityOpenExitAnimation">@anim/open_exit</item>
+        <!-- 退出Activity时, 重新显示的Activity执行的动画-->
+        <item name="android:activityCloseEnterAnimation">@anim/close_enter</item>
+        <!-- 退出Activity时, 新进入的Activity执行的动画-->
+        <item name="android:activityCloseExitAnimation">@anim/close_exit</item>
     </style>
 
     <style name="line">

@@ -1,43 +1,33 @@
 package com.example.sharechatting.api;
 
-import android.net.UrlQuerySanitizer;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 
 import com.example.sharechatting.domain.ResponseBean;
-import com.example.sharechatting.domain.User;
 import com.google.gson.Gson;
 import com.google.gson.internal.$Gson$Types;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.net.CookieStore;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Logger;
 
-import okhttp3.Cache;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Cookie;
 import okhttp3.CookieJar;
-import okhttp3.FormBody;
 import okhttp3.HttpUrl;
 import okhttp3.MediaType;
-import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import retrofit2.http.Body;
 
 public class OkHttpClientManager {
 
